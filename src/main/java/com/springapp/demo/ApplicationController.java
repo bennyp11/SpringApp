@@ -15,5 +15,5 @@ public class ApplicationController {
    public String bookings() {
       return "bookings"; // This will return the "bookings.html" template from the "templates" directory
    }
-
+   
 }
