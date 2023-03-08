@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.springapp.demo.Controllers.BookingController;
-import com.springapp.demo.models.Booking;
+import com.springapp.demo.Models.Booking;
 
 
 @WebMvcTest(BookingController.class)

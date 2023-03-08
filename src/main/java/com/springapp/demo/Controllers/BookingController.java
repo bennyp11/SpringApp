@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springapp.demo.models.Booking;
+import com.springapp.demo.Models.Booking;
 
 @RestController
 public class BookingController {

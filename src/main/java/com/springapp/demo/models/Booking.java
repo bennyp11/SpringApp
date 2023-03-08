@@ -1,4 +1,4 @@
-package com.springapp.demo.models;
+package com.springapp.demo.Models;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
