@@ -18,7 +18,7 @@
    </header>
 
    <main>
-      <form th:action="@{/book-cab}" method="post">
+      <form id="booking-form">
          <label for="pickup-street-address">Pickup Street Address:</label>
          <input type="text" id="pickup-street-address" name="pickupStreetAddress" required th:placeholder="#{pickup.streetAddress.placeholder}"><br>
 
@@ -52,14 +52,56 @@
          <label for="passengers">Passengers:</label>
          <input type="number" id="passengers" name="passengers" min="1" max="10" required th:placeholder="#{passengers.placeholder}"><br>
 
-         <button type="submit">Book Now</button>
+         <button type="submit">Get Fare</button>
       </form>
+      
+      <div id="fare-container">
+      	
+   	  </div>
    </main>
 
    <footer>
       <p>&copy; 2023 Cabby</p>
    </footer>
+	<script type="text/javascript">
+      // Get a reference to the booking form
+      const bookingForm = document.getElementById('booking-form');
 
+      // Attach an event listener to the booking form
+      bookingForm.addEventListener('submit', (event) => {
+         // Prevent the form from submitting normally
+         event.preventDefault();
+
+         // Send an AJAX request to the server
+         const xhr = new XMLHttpRequest();
+         xhr.open('POST', '/book-cab');
+         xhr.setRequestHeader('Content-Type', 'application/json');
+         xhr.onload = () => {
+            // Parse the JSON response
+            const response = JSON.parse(xhr.responseText);
+
+            // Display the fare value in the HTML page
+            const fareContainer = document.getElementById('fare-container');
+            fareContainer.textContent = `The fare is ${response.fare}`;
+         };
+
+         // Get the data from the form and send it as JSON
+         const data = {
+		   pickupStreetAddress: document.getElementById('pickup-street-address').value,
+		   pickupCity: document.getElementById('pickup-city').value,
+		   pickupState: document.getElementById('pickup-state').value,
+		   pickupZipCode: document.getElementById('pickup-zip-code').value,
+		   destinationStreetAddress: document.getElementById('destination-street-address').value,
+		   destinationCity: document.getElementById('destination-city').value,
+		   destinationState: document.getElementById('destination-state').value,
+		   destinationZipCode: document.getElementById('destination-zip-code').value,
+		   date: document.getElementById('date').value,
+		   time: document.getElementById('time').value,
+		   passengers: document.getElementById('passengers').value
+		};
+         xhr.send(JSON.stringify(data));
+      });
+   </script>
 </body>
 </html>
 

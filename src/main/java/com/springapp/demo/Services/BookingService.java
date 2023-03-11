@@ -9,11 +9,13 @@ public class BookingService {
     @Autowired
     private CabFareService cabFareService;
 
-    public void bookCab(String pickupAddress, String destinationAddress) throws Exception {
+    public double bookCab(String pickupAddress, String destinationAddress) throws Exception {
         // Calculate the fare based on the pickup and destination addresses
         double fare = cabFareService.calculateFare(pickupAddress, destinationAddress);
 
         // Print the fare to the console
         System.out.println("Cab fare: $" + fare);
+        
+        return fare;
     }
 }
