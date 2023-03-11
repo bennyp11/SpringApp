@@ -19,11 +19,29 @@
 
    <main>
       <form th:action="@{/book-cab}" method="post">
-         <label for="pickup">Pickup Location:</label>
-         <input type="text" id="pickup" name="pickup" required th:placeholder="#{pickup.placeholder}"><br>
+         <label for="pickup-street-address">Pickup Street Address:</label>
+         <input type="text" id="pickup-street-address" name="pickupStreetAddress" required th:placeholder="#{pickup.streetAddress.placeholder}"><br>
 
-         <label for="destination">Destination:</label>
-         <input type="text" id="destination" name="destination" required th:placeholder="#{destination.placeholder}"><br>
+         <label for="pickup-city">Pickup City:</label>
+         <input type="text" id="pickup-city" name="pickupCity" required th:placeholder="#{pickup.city.placeholder}"><br>
+
+         <label for="pickup-state">Pickup State:</label>
+         <input type="text" id="pickup-state" name="pickupState" required th:placeholder="#{pickup.state.placeholder}"><br>
+
+         <label for="pickup-zip-code">Pickup Zip Code:</label>
+         <input type="text" id="pickup-zip-code" name="pickupZipCode" required th:placeholder="#{pickup.zipCode.placeholder}"><br>
+
+         <label for="destination-street-address">Destination Street Address:</label>
+         <input type="text" id="destination-street-address" name="destinationStreetAddress" required th:placeholder="#{destination.streetAddress.placeholder}"><br>
+
+         <label for="destination-city">Destination City:</label>
+         <input type="text" id="destination-city" name="destinationCity" required th:placeholder="#{destination.city.placeholder}"><br>
+
+         <label for="destination-state">Destination State:</label>
+         <input type="text" id="destination-state" name="destinationState" required th:placeholder="#{destination.state.placeholder}"><br>
+
+         <label for="destination-zip-code">Destination Zip Code:</label>
+         <input type="text" id="destination-zip-code" name="destinationZipCode" required th:placeholder="#{destination.zipCode.placeholder}"><br>
 
          <label for="date">Date:</label>
          <input type="date" id="date" name="date" required th:placeholder="#{date.placeholder}"><br>
@@ -44,3 +62,4 @@
 
 </body>
 </html>
+
