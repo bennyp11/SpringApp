@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookingService {
     
-    @Autowired
     private CabFareService cabFareService;
+
+    public void setCabFareService(CabFareService cabFareService) {
+        this.cabFareService = cabFareService;
+    }
 
     public double bookCab(String pickupAddress, String destinationAddress) throws Exception {
         // Calculate the fare based on the pickup and destination addresses
