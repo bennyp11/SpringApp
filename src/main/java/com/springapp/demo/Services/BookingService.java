@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookingService {
     
+	@Autowired
     private CabFareService cabFareService;
 
     public void setCabFareService(CabFareService cabFareService) {

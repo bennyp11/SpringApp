@@ -7,6 +7,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Logger;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DB {
 
     private static final Logger log;
@@ -21,8 +24,9 @@ public class DB {
     public void init() {
         try {
         	Class.forName("com.mysql.cj.jdbc.Driver");
-        	connection = DriverManager.getConnection(xxxxxxxxxxxxx);
+        	connection = DriverManager.getConnection(xxxxxxxxxxxx);
         	statement = connection.createStatement();
+        	System.out.println("CONNECTION MADE");
         } catch (Exception e) {
         	e.printStackTrace();
         }

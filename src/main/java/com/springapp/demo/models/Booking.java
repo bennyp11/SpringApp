@@ -1,9 +1,11 @@
 package com.springapp.demo.Models;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Booking {
+   private Long id;
    private String pickupStreetAddress;
    private String pickupCity;
    private String pickupState;
@@ -15,6 +17,15 @@ public class Booking {
    private LocalDate date;
    private LocalTime time;
    private int passengers;
+   private BigDecimal fare;
+   
+   public Long getId() {
+       return id;
+   }
+
+   public void setId(Long id) {
+       this.id = id;
+   }
 
    public String getPickupStreetAddress() {
       return pickupStreetAddress;
@@ -103,4 +114,13 @@ public class Booking {
    public void setPassengers(int passengers) {
       this.passengers = passengers;
    }
+
+   public BigDecimal getFare() {
+      return fare;
+   }
+
+   public void setFare(BigDecimal fare) {
+      this.fare = fare;
+   }
 }
+
