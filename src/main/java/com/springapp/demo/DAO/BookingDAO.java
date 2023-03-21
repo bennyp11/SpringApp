@@ -18,8 +18,8 @@ import com.springapp.demo.Models.Booking;
 @Component 
 public class BookingDAO {
 
-    private final String INSERT_BOOKING_SQL = "INSERT INTO cabs.bookings "
-            + "(pickup_street_address, pickup_city, pickup_state, pickup_zip_code, destination_street_address, destination_city, destination_state, destination_zip_code, date, time, passengers, fare) "
+    private final String INSERT_BOOKING_SQL = "INSERT INTO cabs.booking "
+            + "(pickupStreetAddress, pickupCity, pickupState, pickupZipCode, destinationStreetAddress, destinationCity, destinationState, destinationZipCode, date, time, passengers, fare) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private DB db;
