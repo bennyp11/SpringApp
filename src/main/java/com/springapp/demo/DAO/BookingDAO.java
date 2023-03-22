@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,6 +30,36 @@ public class BookingDAO {
     public BookingDAO(DB db) {
         this.db = db;
     }
+    
+    public List<Booking> getBookings() {
+        List<Booking> bookings = new ArrayList<>();
+        try {
+            Connection connection = db.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM cabs.booking");
+            while (resultSet.next()) {
+                Booking booking = new Booking();
+                booking.setId(resultSet.getLong("id"));
+                booking.setPickupStreetAddress(resultSet.getString("pickupStreetAddress"));
+                booking.setPickupCity(resultSet.getString("pickupCity"));
+                booking.setPickupState(resultSet.getString("pickupState"));
+                booking.setPickupZipCode(resultSet.getString("pickupZipCode"));
+                booking.setDestinationStreetAddress(resultSet.getString("destinationStreetAddress"));
+                booking.setDestinationCity(resultSet.getString("destinationCity"));
+                booking.setDestinationState(resultSet.getString("destinationState"));
+                booking.setDestinationZipCode(resultSet.getString("destinationZipCode"));
+                booking.setDate(LocalDate.parse(resultSet.getString("date")));
+                booking.setTime(LocalTime.parse(resultSet.getString("time")));
+                booking.setPassengers(resultSet.getInt("passengers"));
+                booking.setFare(resultSet.getBigDecimal("fare"));
+                bookings.add(booking);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return bookings;
+    }
+
 
 	public int saveBooking(Booking booking) {
         int rowsInserted = 0;

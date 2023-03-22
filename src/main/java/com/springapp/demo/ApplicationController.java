@@ -16,4 +16,9 @@ public class ApplicationController {
       return "bookings"; // This will return the "bookings.html" template from the "templates" directory
    }
    
+   @GetMapping("/viewbookings")
+   public String viewbookings() {
+      return "viewbookings"; // This will return the "bookings.html" template from the "templates" directory
+   }
+   
 }

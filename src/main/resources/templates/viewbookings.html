@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>View Bookings</title>
+   <style>
+      table {
+         border-collapse: collapse;
+         width: 100%;
+      }
+
+      th, td {
+         text-align: left;
+         padding: 8px;
+      }
+
+      tr:nth-child(even) {
+         background-color: #f2f2f2;
+      }
+   </style>
+</head>
+<body>
+   <h1>Bookings</h1>
+   <table>
+      <thead>
+         <tr>
+            <th>ID</th>
+            <th>Pickup Address</th>
+            <th>Destination Address</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Passengers</th>
+            <th>Fare</th>
+         </tr>
+      </thead>
+      <tbody id="bookings-body">
+      </tbody>
+   </table>
+
+   <script>
+      fetch('/get-bookings')
+         .then(response => response.json())
+         .then(bookings => {
+            const bookingsBody = document.getElementById('bookings-body');
+            bookings.forEach(booking => {
+               const row = document.createElement('tr');
+               row.innerHTML = `
+                  <td>${booking.id}</td>
+                  <td>${booking.pickupStreetAddress}, ${booking.pickupCity}, ${booking.pickupState} ${booking.pickupZipCode}</td>
+                  <td>${booking.destinationStreetAddress}, ${booking.destinationCity}, ${booking.destinationState} ${booking.destinationZipCode}</td>
+                  <td>${booking.date}</td>
+                  <td>${booking.time}</td>
+                  <td>${booking.passengers}</td>
+                  <td>${booking.fare}</td>
+               `;
+               bookingsBody.appendChild(row);
+            });
+         })
+         .catch(error => console.error(error));
+   </script>
+</body>
+</html>
+
