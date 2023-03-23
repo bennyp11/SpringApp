@@ -1,0 +1,60 @@
+{
+    "info": {
+        "_postman_id": "f0d3f8c7-36c2-49ed-b5b3-3d748ea5e5d5",
+        "name": "BookingController endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get bookings",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {},
+                "url": {
+                    "raw": "http://localhost:8080/get-bookings",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "get-bookings"
+                    ]
+                },
+                "description": "Get all bookings"
+            },
+            "response": []
+        },
+        {
+            "name": "Book a cab",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"pickupStreetAddress\": \"123 Main St\",\n    \"pickupCity\": \"Anytown\",\n    \"pickupState\": \"CA\",\n    \"pickupZipCode\": \"12345\",\n    \"destinationStreetAddress\": \"456 Oak Ave\",\n    \"destinationCity\": \"Sometown\",\n    \"destinationState\": \"CA\",\n    \"destinationZipCode\": \"67890\",\n    \"fare\": null\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:8080/book-cab",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080",
+                    "path": [
+                        "book-cab"
+                    ]
+                },
+                "description": "Book a cab with the given pickup and destination addresses"
+            },
+            "response": []
+        }
+    ],
+    "protocolProfileBehavior": {}
+}
