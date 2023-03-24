@@ -13,6 +13,10 @@ public class CabFareController {
 
     @Autowired
     private CabFareService cabFareService;
+    
+    public void setCabFareService(CabFareService cabFareService) {
+        this.cabFareService = cabFareService;
+    }
 
     @GetMapping("/cabfare")
     public ResponseEntity<Double> calculateCabFare(
